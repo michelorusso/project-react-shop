@@ -5,7 +5,7 @@ import { store } from "../store";
 import Header from './header'
 
 export const Login = () => {
-    
+
     const arrayMagazine = store.getState();
 
 
@@ -20,30 +20,32 @@ export const Login = () => {
 
     const [error, setError] = useState('');
 
-    const [userCount , setUserCount] = useState(-1);
+    const [userCount, setUserCount] = useState(-1);
     console.log(arrayMagazine.LoginUser.log)
 
     useEffect(() => {
 
     }, []);
     return <div>
-<Header/>
+        <Header />
         <div className="loginForm login">
             <form>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Username</label>
-                    <input type="text" className="form-control" id="exampleInputEmail1" required autoComplete="Username" autoFocus placeholder="Inserisci Username" onChange={(elem) => {setUsername(elem.target.value);
-                      switch (elem.target.value) {
-                        case "KenKaneki131099":
-                    return setUserCount(0); 
-                        case "Naofumi201095":
-                    return setUserCount(1);
-                    }}} />
+                    <input type="text" className="form-control" id="exampleInputEmail1" required autoComplete="Username" autoFocus placeholder="Inserisci Username" onChange={(elem) => {
+                        setUsername(elem.target.value);
+                        switch (elem.target.value) {
+                            case "KenKaneki131099":
+                                return setUserCount(0);
+                            case "Naofumi201095":
+                                return setUserCount(1);
+                        }
+                    }} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputPassword1">Password</label>
-                    <input type="password" className="form-control" id="exampleInputPassword1" required autoComplete="current-password" placeholder="Password"  onChange={(elem) => setPassword(elem.target.value)} />
-                    
+                    <input type="password" className="form-control" id="exampleInputPassword1" required autoComplete="current-password" placeholder="Password" onChange={(elem) => setPassword(elem.target.value)} />
+
                 </div>
                 <div className="text-center">
                     <Link to={`/${admin}`} type="submit" className="btn btn-dark" onClick={() => {
@@ -64,8 +66,8 @@ export const Login = () => {
                 <span className="text-danger">{error}</span>
             </form>
         </div>
-        
-       
+
+
     </div>
 }
 export default Login;
